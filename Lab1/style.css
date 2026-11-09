@@ -1,0 +1,91 @@
+div.text_cell,
+div.jp-MarkdownOutput {
+    font-family: "Source Serif Pro", serif;
+    font-size: 14pt;
+}
+
+div.prompt,
+div.jp-InputPrompt {
+    display: none;
+}
+
+div.rendered_html,
+div.jp-MarkdownCell {
+    text-align: initial;
+    line-height: 1.5em;
+    max-width: 70%;
+    width: 70%;
+    margin: auto;
+}
+
+div.text_cell p,
+div.text_cell ol,
+div.text_cell ul,
+div.jp-RenderedMarkdown p,
+div.jp-RenderedMarkdown ol,
+div.jp-RenderedMarkdown ul {
+    text-align: justify;
+    margin: 0;
+}
+
+div.text_cell p,
+div.jp-RenderedMarkdown p {
+    text-indent: 2em;
+}
+
+div.text_cell ul + p,
+div.text_cell ol + p,
+div.jp-RenderedMarkdown ul + p,
+div.jp-RenderedMarkdown ol + p {
+    text-indent: 0;
+}
+
+a.anchor-link,
+a.jp-InternalAnchorLink {
+    display: none;
+}
+
+div.rendered_html h1,
+div.rendered_html h2,
+div.jp-RenderedHTMLCommon h1,
+div.jp-RenderedHTMLCommon h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+div.jp-RenderedHTMLCommon {
+    overflow: visible !important;
+}
+
+div.rendered_html h1:last-child,
+div.rendered_html h2:last-child {
+    margin-bottom: 0.636em;
+}
+
+.MathJax_Display {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+
+div.output_area,
+div.jp-OutputArea {
+    flex-direction: column;
+    align-items: center;
+}
+
+div.output_subarea,
+div.jp-OutputArea-child {
+    max-width: 100%;
+    text-align: center;
+}
+
+div.jp-RenderedLatex {
+    font-size: 14pt !important;
+    text-align: center !important;
+    overflow: visible;
+}
+
+div.output_text {
+    width: 100%;
+    align-self: start;
+}
