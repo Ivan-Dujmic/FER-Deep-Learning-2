@@ -64,14 +64,21 @@ class UMDist(MixtureDist):
 
     @classmethod
     def random(cls, K: int) -> UMDist:
-        raise NotImplementedError
+        a = np.random.uniform(-5, 3, K)
+        b = a + np.random.gamma(shape=1.5, scale=2, size=K)
+        pi = np.random.dirichlet(5 * np.ones(K)).astype(np.float32)
+
+        return cls(pi, a, b)
 
     def sample(self, L: int) -> NumT:
-        raise NotImplementedError
+        choices = np.random.choice(np.arange(self.K), size=L, p=self.pi)
+        sample = np.random.uniform(self.a[choices], self.b[choices], L)
+
+        return sample
 
     @staticmethod
     def uniform_pdf(x: NumT, a: NumT, b: NumT) -> NumT:
-        raise NotImplementedError
+        return np.where((x >= a) & (x <= b), 1 / (b - a), 0.0)
 
     def p_xz(self, x: NumT, k: int) -> NumT:
-        raise NotImplementedError
+        return self.uniform_pdf(x, self.a[k], self.b[k])
