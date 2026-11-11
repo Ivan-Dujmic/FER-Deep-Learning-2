@@ -4,9 +4,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Union
 
-import math
 import numpy as np
-import tensorflow as tf
 
 NumT = Union[np.ndarray, float] # Custom type that can be either np.ndarray or float
 
@@ -25,6 +23,10 @@ class MixtureDist(ABC): # Abstract Base Class
     @abstractmethod # How to compute the probability or density of a data point x given a specific component k
     def p_xz(self, x: NumT, k: int) -> NumT:
         raise NotImplementedError
+
+    def p_xz_w(self, x: NumT, k: int) -> NumT: # Weighted version of the same thing
+        pi_k = self.pi[k] if hasattr(self.pi, "__getitem__") else self.pi
+        return pi_k * self.p_xz(x, k)
 
     def p_x(self, x: NumT) -> NumT: # Returns the weighted sum of heights of all the curves at point x
         return np.sum([self.pi[k] * self.p_xz(x, k) for k in range(self.K)], axis=0)
