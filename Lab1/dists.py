@@ -4,7 +4,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Union
 
+import math
 import numpy as np
+import tensorflow as tf
 
 NumT = Union[np.ndarray, float] # Custom type that can be either np.ndarray or float
 
